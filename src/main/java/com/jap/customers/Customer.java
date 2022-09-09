@@ -2,7 +2,7 @@ package com.jap.customers;
 
 import java.util.Objects;
 
-public class Customer {
+public class Customer implements Comparable {
     private int customerId;
     private String customerName;
     private String customerGender;
@@ -79,5 +79,10 @@ public class Customer {
     @Override
     public int hashCode() {
         return Objects.hash(customerId, customerName, customerGender, isSeniorCitizen, city);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return String.CASE_INSENSITIVE_ORDER.compare(getCustomerName(), getCustomerName());
     }
 }
